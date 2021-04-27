@@ -1,0 +1,16 @@
+.container-fluid {
+    height: 250px;
+}
+
+.jumbotron-text {
+    opacity: 75%;
+    width: 50%;
+    color: white;
+}
+
+.jumbotron-image {
+    background-image: url(../../../assets/img/character-banner.jpg );
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
