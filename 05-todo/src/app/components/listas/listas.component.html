@@ -1,0 +1,26 @@
+<ion-list color="dark">
+    <ion-item-sliding *ngFor="let item of _todoService.listas | filtroCompletado:completadas; let i = index" class="animated fadeInDown">
+        <ion-item detail color="dark" (click)="listaSeleccionada( item )">
+            <ion-label>{{ item.titulo }}</ion-label>
+            <ion-badge color="tertiary" class="ion-margin-end">{{ item.items.length }}</ion-badge>
+            <ion-badge color="success" class="ion-margin-end">{{ itemsCompletados( item ) }}</ion-badge>
+            <ion-badge color="danger">{{ item.items.length - itemsCompletados( item ) }}</ion-badge>
+        </ion-item>
+        <ion-item-options side="start">
+            <ion-item-option (click)="editarLista( item )" color="primary">
+                <ion-icon name="create" slot="icon-only"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+        <ion-item-options side="end">
+            <ion-item-option (click)="borrar( item )" color="danger">
+                <ion-icon name="close" slot="icon-only"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+</ion-list>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary" (click)="agregarLista()">
+        <ion-icon icon="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
